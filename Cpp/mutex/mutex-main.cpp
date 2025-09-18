@@ -1,5 +1,6 @@
 #include <pthread.h>
 #include <stdio.h>
+#include <linux/sched.h>
 
 pthread_mutex_t count_mutex = PTHREAD_MUTEX_INITIALIZER;
 long long count = 0;
@@ -10,6 +11,7 @@ void* increment_count(void* arg) {
     pthread_mutex_unlock(&count_mutex);
     return NULL;
 }
+
 
 int main() {
     pthread_t threads[10];
